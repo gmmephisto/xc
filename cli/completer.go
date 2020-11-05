@@ -226,13 +226,7 @@ func (x *completer) completeTag(line []rune) ([][]rune, int) {
 }
 
 func (x *completer) Do(line []rune, pos int) ([][]rune, int) {
-	postfix := line[pos:]
 	result, length := x.complete(line[:pos])
-	if len(postfix) > 0 {
-		for i := 0; i < len(result); i++ {
-			result[i] = append(result[i], postfix...)
-		}
-	}
 	return result, length
 }
 
